@@ -1,0 +1,42 @@
+name: lifecycle
+description: "A new Flutter project."
+
+# Yayınlanmayı devre dışı bırakmak için:
+publish_to: 'none'
+
+# Uygulama versiyon bilgisi:
+version: 1.0.0+1
+
+# SDK sürümü:
+environment:
+  sdk: ^3.6.0
+
+# Bağımlılıklar:
+dependencies:
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^10.7.0
+  cupertino_icons: ^1.0.8
+
+# Geliştirme bağımlılıkları:
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+# Flutter'a özel yapılandırmalar:
+flutter:
+  uses-material-design: true
+
+  # Varlık dosyalarını (assets) eklemek için:
+  # assets:
+  #   - assets/images/example.png
+  #   - assets/icons/icon.png
+
+  # Özel fontlar eklemek için:
+  # fonts:
+  #   - family: CustomFont
+  #     fonts:
+  #       - asset: fonts/CustomFont-Regular.ttf
+  #       - asset: fonts/CustomFont-Bold.ttf
+  #         weight: 700
