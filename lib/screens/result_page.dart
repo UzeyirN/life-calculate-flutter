@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lifecycle/calculate.dart';
-import 'package:lifecycle/constants.dart';
-import 'package:lifecycle/user_data.dart';
+import 'package:lifecycle/consts/constants.dart';
+import 'package:lifecycle/models/user_data.dart';
+import 'package:lifecycle/services/calculate.dart';
 
 class ResultPage extends StatefulWidget {
   final UserData? userData;

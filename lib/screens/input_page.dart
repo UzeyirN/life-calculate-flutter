@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:lifecycle/constants.dart';
-import 'package:lifecycle/result_page.dart';
-import 'package:lifecycle/user_data.dart';
+import 'package:lifecycle/consts/constants.dart';
+import 'package:lifecycle/models/user_data.dart';
+import 'package:lifecycle/screens/result_page.dart';
+import 'package:lifecycle/widgets/height_weight.dart';
 
-import 'gender_column.dart';
-import 'my_container.dart';
+import '../widgets/gender_column.dart';
+import '../widgets/my_container.dart';
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -43,13 +44,38 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: MyContainer(
-                    child: buildHeightAndWeightRow('HEIGHT'),
+                    child: HeightWeight(
+                        title: 'HEIGHT',
+                        value: height,
+                        onDecrement: () {
+                          setState(() {
+                            height--;
+                          });
+                        },
+                        onIncrement: () {
+                          setState(() {
+                            height++;
+                          });
+                        }),
                   ),
                 ),
                 Expanded(
                   flex: 1,
                   child: MyContainer(
-                    child: buildHeightAndWeightRow('WEIGHT'),
+                    child: HeightWeight(
+                      title: 'WEIGHT',
+                      value: weight,
+                      onDecrement: () {
+                        setState(() {
+                          weight--;
+                        });
+                      },
+                      onIncrement: () {
+                        setState(() {
+                          weight++;
+                        });
+                      },
+                    ),
                   ),
                 ),
               ],
@@ -178,51 +204,51 @@ class _InputPageState extends State<InputPage> {
     );
   }
 
-  Row buildHeightAndWeightRow(String title) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        RotatedBox(
-          quarterTurns: 3,
-          child: Text(
-            title,
-            style: kTextStyle,
-          ),
-        ),
-        RotatedBox(
-          quarterTurns: 3,
-          child: Text(
-            title == 'HEIGHT' ? '$height' : '$weight',
-            style: kCountStyle,
-          ),
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            OutlinedButton(
-              onPressed: () {
-                setState(() {
-                  title == 'HEIGHT' ? height++ : weight++;
-                });
-              },
-              style: kOutlinedButtonStyle(),
-              child: Icon(
-                FontAwesomeIcons.plus,
-                color: Colors.lightBlue[900],
-              ),
-            ),
-            OutlinedButton(
-              onPressed: () {
-                setState(() {
-                  title == 'HEIGHT' ? height-- : weight--;
-                });
-              },
-              style: kOutlinedButtonStyle(),
-              child: Icon(FontAwesomeIcons.minus),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
+// Row buildHeightAndWeightRow(String title) {
+//   return Row(
+//     mainAxisAlignment: MainAxisAlignment.center,
+//     children: [
+//       RotatedBox(
+//         quarterTurns: 3,
+//         child: Text(
+//           title,
+//           style: kTextStyle,
+//         ),
+//       ),
+//       RotatedBox(
+//         quarterTurns: 3,
+//         child: Text(
+//           title == 'HEIGHT' ? '$height' : '$weight',
+//           style: kCountStyle,
+//         ),
+//       ),
+//       Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           OutlinedButton(
+//             onPressed: () {
+//               setState(() {
+//                 title == 'HEIGHT' ? height++ : weight++;
+//               });
+//             },
+//             style: kOutlinedButtonStyle(),
+//             child: Icon(
+//               FontAwesomeIcons.plus,
+//               color: Colors.lightBlue[900],
+//             ),
+//           ),
+//           OutlinedButton(
+//             onPressed: () {
+//               setState(() {
+//                 title == 'HEIGHT' ? height-- : weight--;
+//               });
+//             },
+//             style: kOutlinedButtonStyle(),
+//             child: Icon(FontAwesomeIcons.minus),
+//           ),
+//         ],
+//       ),
+//     ],
+//   );
+// }
 }

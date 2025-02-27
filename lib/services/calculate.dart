@@ -1,4 +1,4 @@
-import 'package:lifecycle/user_data.dart';
+import 'package:lifecycle/models/user_data.dart';
 
 class Calculate {
   final UserData? userData;
